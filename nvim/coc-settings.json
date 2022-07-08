@@ -1,0 +1,5 @@
+{
+        "clangd.disableDiagnostics": true,
+        "clangd.checkUpdates": true,
+        "java.format.settings.url": "/home/kara/.config/coc/extensions/node_modules/redhat.java/eclipse-formatter.xml"
+}
