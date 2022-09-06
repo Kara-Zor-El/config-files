@@ -180,38 +180,38 @@ require('packer').startup(function()
 
   use {
     "folke/todo-comments.nvim",
-    requires = "nvim-lua/plenary.nvim",
-    config = function()
-      require("todo-comments").setup {
-        signs = true,
-        sign_priority = 8,
-
-        keywords = {
-          FIX = {
-	  icon = "",
-          color = "error"
-        },
-        TODO = { icon = "", color = "info" },
-        HACK = { icon = "", color = "warning" },
-        WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
-        PERF = { icon = "", alt = {"OPTIM", "PERFORMANCE", "OPTIMIZE"} },
-        NOTE = { icon = "", color = "hint", alt = { "INFO" } },
-        },
-        merg_keywords = true,
-        highlight = {
-          before = "bg",
-          keyword = "wide",
-          after = "fg",
-        },
-        colors = {
-          error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-          warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
-          info = { "DiagnosticInfo", "#2563EB" },
-          hint = { "DiagnosticHint", "#10B981" },
-          default = { "Identifier", "#7C3AED" },
-        },
-      }
-    end
+    -- requires = "nvim-lua/plenary.nvim",
+    -- config = function()
+    --   require("todo-comments").setup {
+    --     signs = true,
+	  --         sign_priority = 8,
+	  --
+	  --         keywords = {
+	  --           FIX = {
+	  -- icon = "",
+	  --           color = "error"
+	  --         },
+	  --         TODO = { icon = "", color = "info" },
+	  --         HACK = { icon = "", color = "warning" },
+	  --         WARN = { icon = "", color = "warning", alt = { "WARNING", "XXX" } },
+	  --         PERF = { icon = "", alt = {"OPTIM", "PERFORMANCE", "OPTIMIZE"} },
+	  --         NOTE = { icon = "", color = "hint", alt = { "INFO" } },
+	  --         },
+	  --         merg_keywords = true,
+	  --         highlight = {
+	  --           before = "bg",
+	  --           keyword = "wide",
+	  --           after = "fg",
+	  --         },
+	  --         colors = {
+	  --           error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+	  --           warning = { "DiagnosticWarning", "WarningMsg", "#FBBF24" },
+	  --           info = { "DiagnosticInfo", "#2563EB" },
+	  --           hint = { "DiagnosticHint", "#10B981" },
+	  --           default = { "Identifier", "#7C3AED" },
+	  --         }, 
+    --   }
+    -- end
   } -- todo-comments
 
   use {'terrortylor/nvim-comment'} -- comment
@@ -238,6 +238,17 @@ require('packer').startup(function()
   use 'dylanaraps/pascal_lint.nvim' -- pascal
 
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+  -- OpenSCAD
+  use {
+    'salkin-mada/openscad.nvim',
+    config = function ()
+        require('openscad')
+        -- load snippets, note requires
+        vim.g.openscad_load_snippets = true
+    end,
+    requires = 'L3MON4D3/LuaSnip'
+  }
 end)
 
 vim.wo.foldcolumn = '1'
@@ -482,7 +493,6 @@ require("arduino-helper").setup{
 
 -- coc-lua setup
 
-
 vim.o.autoindent = true
 vim.bo.autoindent = true
 vim.o.expandtab = true
@@ -494,6 +504,16 @@ vim.o.clipboard = 'unnamedplus'
 -- usse mouse to select multiple lines
 vim.g.VM_mouse_mappings = 1
 
+vim.g.openscad_default_mappings = true
+
 -- vim.cmd('colorscheme rose-pine')
-vim.cmd('colorscheme catppuccin')
 vim.g.closetag_flavour = "mocha"
+vim.g.catppuccino_flavour = "mocha"
+require("catppuccin").setup({
+  compile = {
+    enabled = true,
+    path = vim.fn.stdpath "cache" .. "/catppuccin",
+  },
+})
+vim.cmd('colorscheme catppuccin')
+vim.cmd('Catppuccin mocha')
