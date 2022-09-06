@@ -1,7 +1,7 @@
 * {
 	border: none;
 	border-radius: 10px;
-    font-family: "JetbrainsMono Nerd Font" ;
+        font-family: "JetbrainsMono Nerd Font" ;
 	font-size: 15px;
 	min-height: 10px;
 }
@@ -20,7 +20,6 @@ window#waybar.hidden {
 	padding-right: 10px;
 	border-radius: 10px;
 	transition: none;
-    color: transparent;
 	background: transparent;
 }
 #tags {
@@ -50,8 +49,8 @@ window#waybar.hidden {
 
 #tags button.focused {
 	color: #ABE9B3;
-    border-top: 2px solid #ABE9B3;
-    border-bottom: 2px solid #ABE9B3;
+        border-top: 2px solid #ABE9B3;
+        border-bottom: 2px solid #ABE9B3;
 }
 
 #tags button:hover {
@@ -59,33 +58,35 @@ window#waybar.hidden {
 	box-shadow: inherit;
 	text-shadow: inherit;
 	color: #FAE3B0;
-    border-color: #E8A2AF;
-    color: #E8A2AF;
+        border-color: #E8A2AF;
+        color: #E8A2AF;
 }
 
 #tags button.focused:hover {
-    color: #E8A2AF;
+        background-color: #E8A2AF;
 }
 
 #workspaces button {
         padding: 0 0 0 0;
-        margin: 4px 3px 6px 3px;
-        background-color: #161320;
+        margin: 4px 3px 6px 4px;
+        background-color: transparent;
         color: #B5E8E0;
         min-width: 36px;
 }
 
 #workspaces button.active {
-
         padding: 0 0 0 0;
         margin: 4px 3px 6px 3px;
-        background-color: #B4BEFE;
-        color: #000000;
-        min-width: 36px;
+        border-top: 2px solid #ABE9B3;
+        border-bottom: 2px solid #ABE9B3;
+        border-left: 2px solid #ABE9B3;
+        border-right: 2px solid #ABE9B3;
+        min-width: 32px;
 }
 
 #workspaces button:hover {
-        background: rgba(0, 0, 0, 0.2);
+        background-color: #ABE9B3;
+        color: #000000;
 }
 
 #workspaces button.focused {
@@ -97,8 +98,12 @@ window#waybar.hidden {
         background-color: #64727D;
 }
 
+
 #window,
 #workspaces {
+        background-color: #161320;
+        transition: none;
+        color: #B5E8E0;
         margin: 0 4px;
 }
 
@@ -148,17 +153,17 @@ window#waybar.hidden {
 
 #battery.charging, #battery.plugged {
 	color: #161320;
-    background-color: #B5E8E0;
+        background-color: #B5E8E0;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #B5E8E0;
-    color: #161320;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+        background-color: #B5E8E0;
+        color: #161320;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
 }
 
 @keyframes blink {
@@ -189,7 +194,6 @@ window#waybar.hidden {
 	transition: none;
 	color: #161320;
 	background: #ABE9B3;
-	/*background: #1A1826;*/
 }
 
 #memory {
@@ -235,8 +239,8 @@ window#waybar.hidden {
 	padding-right: 5px;
 	border-radius: 10px;
 	transition: none;
-    color: #89DCEB;
-    background: #161320;
+        color: #89DCEB;
+        background: #161320;
 }
 
 #custom-power {
@@ -245,7 +249,6 @@ window#waybar.hidden {
 	margin-left: 8px;
 	margin-right: 8px;
 	padding-left: 10px;
-	/* padding-right: 5px; */
         padding-right: 10px;
 	margin-bottom: 0px;
 	border-radius: 10px;

@@ -1,9 +1,9 @@
 {
-        "gtk-layer-shell": false,
+        "gtk-layer-shell": true,
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
 	"modules-center": ["wlr/workspaces"],
-	"modules-right": ["backlight","pulseaudio", "network", "clock", "battery","custom/power"],
+	"modules-right": ["backlight","pulseaudio", "network", "clock", "battery", "custom/power"],
 	
 	"pulseaudio": {
                "tooltip": false,
@@ -21,7 +21,11 @@
         },
         "wlr/workspaces": {
           "sort-by-name": true,
-          /* "on-click": "activate", */
+          "format": "{name}",
+          "on-click": "activate"
+        },
+        "hyprland/window": {
+          "format": "{}"
         },
 
 	"network": {
@@ -32,16 +36,15 @@
                 "format-icons": {
                   "wifi": [""],
                   "ethernet": [""],
-                  "disconnected": ["睊"],
+                  "disconnected": [""],
                 },
                 "on-click": "kitty -e nmtui",
 	},
 	"backlight": {
-	/*	"tooltip": false,
 		"format": " {}%",
 		"interval":1,
         "on-scroll-up": "light -A 5",
-		"on-scroll-down": "light -U 5" */
+	"on-scroll-down": "light -U 5",
         "interval": 2,
         "align": 0,
         "rotate": 0,
@@ -102,8 +105,6 @@
     },
     "custom/power":{
         "format": "襤",
-        /* "on-click": "bash ~/.config/rofi/leave/leave.sh", */
-        /* "on-click":"rofi-powermenu" */
         "on-click": "wlogout -p layer-shell"
     },
     "custom/updates":{
@@ -113,8 +114,4 @@
         "interval": 15,
         "on-click": "kitty -e yay -Syu && notify-send 'The system has been updated' "
     },
-    /*"custom/wallpaper":{
-        "format":" ",
-        "on-click": "bash ~/.config/system_scripts/pkill_bc"
-    }*/
 }
