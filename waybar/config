@@ -8,17 +8,19 @@
 	"pulseaudio": {
                "tooltip": false,
                "scroll-step": 5,
-               "format": " {icon} {volume}%",
-               "format-muted": " 婢 {volume}%",
-               "format-icons": {
-                "default": ["奄", "奔", "墳"]
-              },
-              "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+              /*  "format": " {icon} {volume}%", */
+              /*  "format-muted": " 婢 {volume}%", */
+              /*  "format-icons": { */
+              /*   "default": ["奄", "奔", "墳"] */
+              /* }, */
+               "format": "{icon} {volume}%",
+                      "format-muted": "婢 {volume}%",
+                      "format-icons": {
+                          "headphone": "",
+                          "default": ["奄", "奔", "墳"]
+                      },
+        "on-click":"pactl set-sink-mute @DEFAULT_SINK@ toggle"
 	},
-        "river/tags": {
-                    "num-tags": 6,
-                    "disable-click": true,
-        },
         "wlr/workspaces": {
           "sort-by-name": true,
           "format": "{name}",
@@ -34,26 +36,26 @@
                 "format-alt": "{ipaddr} {icon}",
                 "format-alt-click": "click-right",
                 "format-icons": {
-                  "wifi": [""],
-                  "ethernet": [""],
-                  "disconnected": [""],
+                  "wifi": "",
+                  "ethernet": "",
+                  "disconnected": "",
                 },
                 "on-click": "kitty -e nmtui",
 	},
 	"backlight": {
 		"format": " {}%",
 		"interval":1,
-        "on-scroll-up": "light -A 5",
-	"on-scroll-down": "light -U 5",
-        "interval": 2,
-        "align": 0,
-        "rotate": 0,
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", ""],
-        "on-click": "",
-        "on-scroll-up": "light -A 5%",
-        "on-scroll-down": "light -U 5%",
-        "smooth-scrolling-threshold": 1,
+                "on-scroll-up": "light -A 5",
+                "on-scroll-down": "light -U 5",
+                "interval": 2,
+                "align": 0,
+                "rotate": 0,
+                "format": "{icon} {percent}%",
+                "format-icons": ["", "", "", ""],
+                "on-click": "",
+                "on-scroll-up": "light -A 5%",
+                "on-scroll-down": "light -U 5%",
+                "smooth-scrolling-threshold": 1,
 	},
     "battery": {
         "states": {
@@ -61,18 +63,18 @@
             "warning": 30,
             "critical": 20
         },
-        "format": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
+        "format": "{capacity}% {icon}",
+        "format-charging": " {capacity}%",
         "format-plugged": " {capacity}%",
         "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": ["", "", "", "", "", "", "", "", "", ""],
     },
 	"tray":{
 		"icon-size":18,
 		"spacing": 10
 	},
     "clock": {
-        "format": "{: %I:%M %p }",
+        "format": "{: %I:%M %p}",
         "format-alt": "{: %I:%M %p   %d/%m/%Y}"
     },
     "cpu": {
@@ -99,19 +101,12 @@
         "on-click": "playerctl play-pause"
     },
     "custom/launcher":{
-        "format": " ",
+        "format": "",
         "on-click": "rofi -show drun -terminal kitty -theme ~/.config/rofi/launcher.rasi -show combi -icon-theme 'Papirus' -show-icons",
         "on-click-right": "killall rofi"
     },
     "custom/power":{
         "format": "襤",
         "on-click": "wlogout -p layer-shell"
-    },
-    "custom/updates":{
-        "format": "{} Update(s)",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "kitty -e yay -Syu && notify-send 'The system has been updated' "
     },
 }
